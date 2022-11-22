@@ -1,0 +1,22 @@
+node_modules
+
+# VSCode
+.vscode
+
+# Hardhat
+artifacts
+cache
+deployments
+coverage
+coverage.json
+typechain
+
+# Environment settings
+.env
+
+# Log Files
+*.log
+
+# Gas Report
+gas-report.txt
+gas-report.md

@@ -1,0 +1,17 @@
+node_modules
+
+artifacts
+cache
+deployments
+
+coverage
+coverage.json
+
+gasReport.txt
+gasReport.md
+
+package.json
+
+img
+.env
+.*
