@@ -40,6 +40,8 @@ const setupContracts: DeployFunction = async (
     // After everything's setup, revoke `deployer`'s admin role
     const revokeAdminTx = await timeLock.revokeRole(adminRole, deployer);
     await revokeAdminTx.wait(1);
+
+    log(">>>>>> Roles setup done!");
 };
 
 export default setupContracts;
