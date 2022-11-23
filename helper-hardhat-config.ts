@@ -16,4 +16,4 @@ export const networkConfig = {
 export const developmentChains = ["hardhat", "localhost"];
 export const LOCAL_BLOCK_CONFIRMATIONS = 1;
 export const VERIFICATION_BLOCK_CONFIRMATIONS = 6;
-export const MIN_DELAY = 3600;
+export const MIN_DELAY = 3600; // 1 hour
