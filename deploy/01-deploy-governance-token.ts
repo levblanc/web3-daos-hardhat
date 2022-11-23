@@ -70,4 +70,4 @@ const delegate = async (
 
 export default deployGovernanceToken;
 
-deployGovernanceToken.tags = ["all", "governor"];
+deployGovernanceToken.tags = ["all", "governanceToken"];
