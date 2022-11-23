@@ -8,8 +8,6 @@ import {
 } from "../helper-hardhat-config";
 import verify from "../utils/verify";
 
-const TIMELOCK: string = "TimeLock";
-
 const deployTimeLock: DeployFunction = async (
     hre: HardhatRuntimeEnvironment
 ) => {
@@ -28,7 +26,7 @@ const deployTimeLock: DeployFunction = async (
         ? LOCAL_BLOCK_CONFIRMATIONS
         : VERIFICATION_BLOCK_CONFIRMATIONS;
 
-    const timeLock = await deploy(TIMELOCK, {
+    const timeLock = await deploy("TimeLock", {
         from: deployer,
         args,
         log: true,
