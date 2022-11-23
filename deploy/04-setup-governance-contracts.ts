@@ -1,18 +1,17 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/dist/types";
 import { ethers } from "hardhat";
-import { developmentChains, ADDRESS_ZERO } from "../helper-hardhat-config";
+import { ADDRESS_ZERO } from "../helper-hardhat-config";
 
 const setupContracts: DeployFunction = async (
     hre: HardhatRuntimeEnvironment
 ) => {
     const {
         getNamedAccounts,
-        deployments: { deploy, log },
+        deployments: { log },
         network,
     } = hre;
     const { deployer } = await getNamedAccounts();
-    const isLocalNetwork = developmentChains.includes(network.name);
     const timeLock = await ethers.getContract("TimeLock", deployer);
     const governor = await ethers.getContract("GovernorContract", deployer);
 
@@ -24,14 +23,14 @@ const setupContracts: DeployFunction = async (
     const executorRole = await timeLock.EXECUTOR_ROLE();
     const adminRole = await timeLock.TIMELOCK_ADMIN_ROLE();
 
-    const proposerSetupTx = await timeLock.grandRole(
+    const proposerSetupTx = await timeLock.grantRole(
         proposerRole,
         governor.address
     );
     await proposerSetupTx.wait(1);
 
     // Giving executor role to nobody, which means everybody
-    const executorSetupTx = await timeLock.grandRole(
+    const executorSetupTx = await timeLock.grantRole(
         executorRole,
         ADDRESS_ZERO
     );
