@@ -1,3 +1,5 @@
+import { ethers } from "hardhat";
+
 export const networkConfig = {
     default: {
         name: "hardhat",
@@ -21,3 +23,4 @@ export const VOTING_PERIOD = 5; // 5 blocks
 export const VOTING_DELAY = 1; // 1 blocks
 // 4% of voters need to vote for a vote to pass
 export const QUORUM_PERCENTAGE = 4;
+export const ADDRESS_ZERO = ethers.constants.AddressZero;
