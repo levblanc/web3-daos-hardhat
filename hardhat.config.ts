@@ -1,17 +1,11 @@
-require("@nomicfoundation/hardhat-toolbox")
-require('hardhat-deploy')
-require("dotenv").config()
-
-const {
-    LOCAL_BLOCK_CONFIRMATIONS,
-    VERIFICATION_BLOCK_CONFIRMATIONS,
-    ENABLE_GAS_REPORTER
-} = require("./helper-hardhat-config");
+import "@nomicfoundation/hardhat-toolbox";
+import "hardhat-deploy";
+import "dotenv/config";
+import { HardhatUserConfig } from "hardhat/config";
 
 const { GOERLI_RPC_URL, PRIVATE_KEY, ETHERSCAN_API_KEY } = process.env;
 
-/** @type import('hardhat/config').HardhatUserConfig */
-module.exports = {
+const config: HardhatUserConfig = {
     solidity: {
         compilers: [
             {
@@ -23,17 +17,14 @@ module.exports = {
     networks: {
         hardhat: {
             chainId: 31337,
-            blockConfirmations: LOCAL_BLOCK_CONFIRMATIONS,
         },
         localhost: {
             chainId: 31337,
-            blockConfirmations: LOCAL_BLOCK_CONFIRMATIONS,
             url: "http://127.0.0.1:8545",
         },
         goerli: {
             chainId: 5,
             url: GOERLI_RPC_URL,
-            blockConfirmations: VERIFICATION_BLOCK_CONFIRMATIONS,
             accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
         },
     },
@@ -56,14 +47,13 @@ module.exports = {
         ],
     },
     gasReporter: {
-        enabled: ENABLE_GAS_REPORTER,
+        enabled: false,
         outputFile: "gas-report.md",
         noColors: true,
-    },
-    contractSizer: {
-        runOnCompile: false,
     },
     mocha: {
         timeout: 200000, // maximum time for running tests, in ms
     },
-}
+};
+
+export default config;
