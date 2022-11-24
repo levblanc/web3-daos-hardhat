@@ -11,7 +11,6 @@ import {
 } from "../helper-hardhat-config";
 import run from "../utils/runScript";
 import moveBlocks from "../utils/moveBlocks";
-import { ethers } from "ethers";
 
 const propose = async (
     functionName: string,
