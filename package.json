@@ -9,6 +9,7 @@
     "deploy": "hardhat deploy",
     "propose:localhost": "hardhat run scripts/propose.ts --network localhost",
     "vote:localhost": "hardhat run scripts/vote.ts --network localhost",
+    "queueAndExecute:localhost": "hardhat run scripts/queue-and-execute.ts --network localhost",
     "test": "hardhat test test/unit/*.spec.js",
     "test:staging": "hardhat test test/staging/*.spec.js --network goerli",
     "lint": "solhint 'contracts/*.sol'",
