@@ -1,15 +1,13 @@
 import { network } from "hardhat";
 
-const moveBlocks = async (blocks: number, interval: number = 0) => {
+const moveBlocks = async (blocks: number) => {
     console.log(">>>>>> Moving blocks...");
 
     for (let index = 0; index < blocks; index++) {
-        setInterval(async () => {
-            return await network.provider.request({
-                method: "evm_mine",
-                params: [],
-            });
-        }, interval);
+        await network.provider.request({
+            method: "evm_mine",
+            params: [],
+        });
     }
 
     console.log(`>>>>>> Moved ${blocks} blocks`);
