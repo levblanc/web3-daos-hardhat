@@ -24,3 +24,8 @@ export const VOTING_DELAY = 1; // 1 blocks
 // 4% of voters need to vote for a vote to pass
 export const QUORUM_PERCENTAGE = 4;
 export const ADDRESS_ZERO = ethers.constants.AddressZero;
+
+export const NEW_STORE_VALUE = 77;
+export const FUNC = "store";
+export const PROPOSAL_DESCRIPTION = "Proposal #1: Store 77 in the Box.";
+export const proposalsFile = "proposals.json";
