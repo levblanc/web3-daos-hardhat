@@ -1,6 +1,6 @@
-const run = async (asyncFunc: Function, asyncFuncArgs: any[]) => {
+const run = async (asyncFunc: Function, asyncFuncArgs?: any[]) => {
     try {
-        await asyncFunc(...asyncFuncArgs);
+        asyncFuncArgs ? await asyncFunc(...asyncFuncArgs) : await asyncFunc();
         process.exit(0);
     } catch (error) {
         console.error(error);
