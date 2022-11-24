@@ -3,7 +3,7 @@ import path from "path";
 import fs from "fs-extra";
 import {
     developmentChains,
-    FUNC,
+    FUNCTION_TO_CALL,
     NEW_STORE_VALUE,
     PROPOSAL_DESCRIPTION,
     VOTING_DELAY,
@@ -117,6 +117,6 @@ const storeProposalId = (proposalId: string) => {
     }
 };
 
-const proposeArgs = [FUNC, [NEW_STORE_VALUE], PROPOSAL_DESCRIPTION];
+const proposeArgs = [FUNCTION_TO_CALL, [NEW_STORE_VALUE], PROPOSAL_DESCRIPTION];
 
 run(propose, proposeArgs);
